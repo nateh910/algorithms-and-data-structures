@@ -15,6 +15,19 @@ def peak_finder_dac(data):
         result = peak_finder_basic(second)
     return result
 
+def peak_finder_dac_recursive(data):
+    mid = len(data)//2
+    first = data[:mid]
+    second = data[mid:]
+    result = None
+    if mid >= mid+1 and mid >= mid-1:
+        return mid
+    if mid - 1 > mid:
+        result = peak_finder_dac_recursive(first)
+    if result == None and mid + 1 > mid:
+        result = peak_finder_dac_recursive(second)
+    return None
+    
 #this should "direct" where to search
 def peak_finder_dac_better(data):
     midpoint = len(data)//2
